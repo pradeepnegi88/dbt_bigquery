@@ -1,0 +1,28 @@
+version: '1.0.0'
+analysis-paths: ["analyses"]
+clean-targets:
+  - target
+  - dbt_packages
+macro-paths: ["macros"]
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
+models:
+  dbt_bigquery_prad88:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: dbt_bigquery_prad88
+# This setting configures which "profile" dbt uses for this project.
+profile: dbt_bigquery_prad88
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+# Full documentation: https://docs.getdbt.com/docs/configuring-models

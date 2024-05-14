@@ -1,0 +1,36 @@
+version: 2
+models: 
+  - name: stg_ecommerce__products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+      - name: cost
+        tests:
+          - not_null
+        
+
+
+      - name: retail_price
+        tests:
+          - not_null
+
+
+      - name: department
+        description: "Item is Womenwear/Menswear"
+        tests:
+          - not_null
+          - accepted_values:
+               name: unexpected_department
+               values:
+                 - Men
+                 - Women
+              
+
+      - name: brand
+  
+
+
+

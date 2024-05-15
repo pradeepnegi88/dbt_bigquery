@@ -39,7 +39,7 @@ columns:
     - not_null
 
 - name: total profit
-  description: "Sum of (item_sale_price - product _cost) for the whole order"
+  description: "{{doc('totalprofit')}}"
   tests:
     - not null
 

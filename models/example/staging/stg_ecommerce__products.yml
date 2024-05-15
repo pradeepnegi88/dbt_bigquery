@@ -1,36 +1,48 @@
 version: 2
-models: 
+models:
   - name: stg_ecommerce__products
     columns:
       - name: product_id
+        data_type: INT64
+        description: The unique identifier for each product in the ecommerce store.
         tests:
           - not_null
           - unique
-
       - name: cost
+        data_type: FLOAT64
+        description: The cost of the product to the ecommerce store. This is the price
+          the store pays to acquire the product.
         tests:
           - not_null
-        
-
-
       - name: retail_price
+        data_type: FLOAT64
+        description: The price at which the product is sold to customers in the
+          ecommerce store.
         tests:
           - not_null
-
-
       - name: department
-        description: "Item is Womenwear/Menswear"
+        description: The 'department' column represents the department in which the
+          product is categorized within the ecommerce business. This could
+          include departments such as 'Electronics', 'Clothing', 'Home &
+          Kitchen', etc.
+        data_type: STRING
         tests:
           - not_null
           - accepted_values:
-               name: unexpected_department
-               values:
-                 - Men
-                 - Women
-              
-
+              name: unexpected_department
+              values:
+                - Men
+                - Women
       - name: brand
-  
-
-
-
+        data_type: STRING
+        description: The 'brand' column represents the brand name of the product. This
+          could include brand names such as 'Apple', 'Nike', 'Samsung', etc.
+    description: "The stg_ecommerce__products model is a staging model that
+      represents the products in an ecommerce business. It is derived from the
+      'products' table in the 'thelook_ecommerce' dataset from the
+      'bigquery-public-data' project. The model contains the following columns:
+      'product_id' which is the unique identifier for each product, 'cost' which
+      represents the cost of the product, 'retail_price' which is the selling
+      price of the product, 'department' which indicates the department the
+      product belongs to, and 'brand' which represents the brand of the
+      product."

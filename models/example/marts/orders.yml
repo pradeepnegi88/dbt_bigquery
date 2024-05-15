@@ -1,49 +1,52 @@
 version: 2
 models:
-- name: orders
-description: "Table of order level information" 
+  - name: orders
+    description: "The 'orders' model is a transformation of the
+      'stg_ecommerce__orders' source table and the
+      'int_ecommerce_product_order_item' intermediate table. It aggregates order
+      item measures at the order level and joins them with the order details.
+      The model includes the following columns: 'order_id', 'order_created_at',
+      'order_shipped_at', 'order_delivered_at', 'order_returned_at',
+      'order_status', 'num_items_ordered', 'total_sale_price',
+      'total_product_cost', 'total_profit', and 'total_discount'. The 'order_id'
+      column is used as the unique identifier for each order. The
+      'total_sale_price', 'total_product_cost', 'total_profit', and
+      'total_discount' columns are aggregated from the
+      'int_ecommerce_product_order_item' table. The remaining columns are
+      sourced from the 'stg_ecommerce__orders' table."
+    columns: []
+description: Table of order level information
 columns:
-
-- name: order_id 
-  tests:
-    - unique
-    - relationships:
-        to: ref(stg_ecommerce__orders')
-        field: order id
-
-- name: order_created_at
-  description: "When the order was created"
-
-- name: order_returned_at 
-  description: "When the order was returned"
-
-- name: order_delivered_at
-  description: "When the order was delivered"
-
-
-- name: order_shipped _at
-  description: "When the order was shipped"
-
-- name: order_status
-
-- name: num items_ordered
-  description: "Number of items in the order"
-
-- name: total_sale_price
-  description: "Sum of item_sale_price for the whole order" 
-  tests:
-    - not null
-- name: total_product_cost
-  description: "Sum of product_ cost for the whole order"
-  tests:
-    - not_null
-
-- name: total profit
-  description: "{{doc('totalprofit')}}"
-  tests:
-    - not null
-
-- name: total _discount
-  description: "Sum of (product retail_ price - item_sale_price) for the whole order"
-  tests:
-    - not null
+  - name: order_id
+    tests:
+      - unique
+      - relationships:
+          to: ref(stg_ecommerce__orders')
+          field: order id
+  - name: order_created_at
+    description: When the order was created
+  - name: order_returned_at
+    description: When the order was returned
+  - name: order_delivered_at
+    description: When the order was delivered
+  - name: order_shipped _at
+    description: When the order was shipped
+  - name: order_status
+  - name: num items_ordered
+    description: Number of items in the order
+  - name: total_sale_price
+    description: Sum of item_sale_price for the whole order
+    tests:
+      - not null
+  - name: total_product_cost
+    description: Sum of product_ cost for the whole order
+    tests:
+      - not_null
+  - name: total profit
+    description: "{{doc('totalprofit')}}"
+    tests:
+      - not null
+  - name: total _discount
+    description: Sum of (product retail_ price - item_sale_price) for the whole order
+    tests:
+      - not null

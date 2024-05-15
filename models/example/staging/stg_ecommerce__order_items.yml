@@ -1,35 +1,51 @@
 version: 2
-models: 
+models:
   - name: stg_ecommerce__order_items
     columns:
       - name: order_id_item
+        data_type: INT64
+        description: Unique identifier for each item in an order. This is a primary key
+          for the stg_ecommerce__order_items model.
         tests:
           - not_null
           - unique
-
       - name: order_id
+        data_type: INT64
+        description: Unique identifier for each order. This is a foreign key that links
+          to the order_id in the orders model.
         tests:
           - not_null
           - relationships:
               to: ref('stg_ecommerce_orders')
               field: order_id
-
-
       - name: user_id
+        data_type: INT64
+        description: Unique identifier for each user. This is a foreign key that links
+          to the user_id in the users model.
         tests:
           - not_null
-
-
       - name: product_id
+        data_type: INT64
+        description: The unique identifier for each product sold in the ecommerce
+          platform. This is a foreign key that links to the product table.
         tests:
           - not_null
           - relationships:
               to: ref('stg_ecommerce_products')
               field: product_id
-
       - name: item_sale_price
+        data_type: FLOAT64
+        description: The sale price of each individual item in an order. This is the
+          final price that the customer pays for the product, after any
+          discounts or promotions.
         tests:
           - not_null
-
-
-
+    description: "The stg_ecommerce__order_items model is a staging model that
+      represents the order items in an ecommerce platform. It is derived from
+      the 'order_items' table in the 'thelook_ecommerce' dataset from the
+      'bigquery-public-data' project. The model contains the following columns:
+      'order_id_item' which is the unique identifier for each order item,
+      'order_id' which is the unique identifier for each order, 'user_id' which
+      is the unique identifier for each user, 'product_id' which is the unique
+      identifier for each product, and 'item_sale_price' which represents the
+      sale price of each item."

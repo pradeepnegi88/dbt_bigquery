@@ -8,6 +8,7 @@ models:
         tests:
           - not_null
           - unique
+          - primary_key
       - name: cost
         data_type: FLOAT64
         description: The cost of the product to the ecommerce store. This is the price

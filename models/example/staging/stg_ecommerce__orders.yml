@@ -70,4 +70,12 @@ models:
       delivered_at columns represent timestamps for when the order was created,
       returned, shipped, and delivered respectively. The num_items_ordered
       column indicates the number of items ordered in each order."
+    # tests:
+    #    - dbt_utils.recency:
+    #       datepart: day
+    #       field: created_at
+    #       interval: 4
+    #     model level tests
+
+
 version: 2

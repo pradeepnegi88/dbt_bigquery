@@ -20,6 +20,9 @@ models:
           ecommerce store.
         tests:
           - not_null
+          # - dbt_utils.expression_is_true:
+          #     expression: "<=cost"
+          #     where: "retail_price is not null"
       - name: department
         description: The 'department' column represents the department in which the
           product is categorized within the ecommerce business. This could

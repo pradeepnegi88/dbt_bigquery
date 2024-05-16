@@ -12,6 +12,7 @@ group by 1
 SELECT
  od.order_id, 
  od.created_at as order_created_at, 
+ {{ is_weekday(' od.created_at ') }} as weekday_order,
  od.shipped_at as order_shipped_at, 
  od.delivered_at as order_delivered_at,
  od.returned_at as order_returned_at,

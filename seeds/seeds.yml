@@ -1,0 +1,20 @@
+version: 2
+seeds:
+  - name: seed_distribution_centers
+    
+    columns:
+       - name: id
+         tests:
+            - not_null
+            - unique
+       - name: name
+       - name: latitude
+       - name: longitude
+
+    config:
+       column_types:
+          id: INTEGER
+          name: STRING
+          latitude: FLOAT
+          longitude: FLOAT
+

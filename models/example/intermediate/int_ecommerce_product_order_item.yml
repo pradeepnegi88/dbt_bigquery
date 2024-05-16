@@ -14,7 +14,7 @@ models:
         description: This is a unique identifier for each order. It is used to group all
           items that belong to the same order.
         tests:
-          - not_
+          - not_null
       - name: user_id
         description: This is a unique identifier for each user. It is used to identify
           the user who placed the order.
@@ -29,7 +29,7 @@ models:
           may be lower than the retail price due to discounts or promotions.
         data_type: FLOAT64
         tests:
-          - not
+          - not_null
       - name: product_department
         description: The department or category to which the product belongs. This helps
           in classifying the products on the ecommerce platform.
@@ -53,7 +53,7 @@ models:
           difference between the item's sale price and the product's cost.
         data_type: FLOAT64
         tests:
-          - not
+          - not_null
       - name: item_discount
         description: This column represents the discount applied to the item. It is
           calculated by subtracting the item's sale price from the product's

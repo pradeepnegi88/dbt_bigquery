@@ -1,3 +1,5 @@
+{{ config(tags=['orders_related']) }} -- dbt run -s tag:orders_related
+
 with source as (
     select * from {{source('thelook_ecommerce','order_items')}}
 )

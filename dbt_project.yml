@@ -19,6 +19,8 @@ models:
       +persist_docs:
         relation: true
         columns: true
+      # staging: 
+      #    +tags: ['orders_related','non-orders']  
 
 # tests:
 #   dbt_bigquery_prad88:

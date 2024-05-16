@@ -20,6 +20,8 @@ models:
           ecommerce store.
         tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0  
           # - dbt_utils.expression_is_true:
           #     expression: "<=cost"
           #     where: "retail_price is not null"

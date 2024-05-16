@@ -9,7 +9,7 @@ from {{ref('int_ecommerce_product_order_item')}}
 group by 1
 )
 
-SELECT
+select
  od.order_id, 
  od.created_at as order_created_at, 
  {{ is_weekday(' od.created_at ') }} as weekday_order,

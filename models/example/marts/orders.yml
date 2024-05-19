@@ -32,6 +32,7 @@ columns:
   - name: order_shipped _at
     description: When the order was shipped
   - name: order_status
+    description: "{{doc('statusdescription')}}"
   - name: num items_ordered
     description: Number of items in the order
   - name: total_sale_price

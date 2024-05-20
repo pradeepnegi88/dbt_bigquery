@@ -1,6 +1,7 @@
 Welcome to your new dbt project!
 
 ### Using the starter project
+export KEY_FILE="location of service account json file"
 
 Try running the following commands:
 - dbt run
